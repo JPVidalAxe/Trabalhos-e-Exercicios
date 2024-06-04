@@ -45,35 +45,36 @@ def qsort(l,usuarios):
 
 
 def data(post1,post2):
-        ano1 = post1[3][2]
-        ano2 = post2[3][2]
-        mes1 = post1[3][1]
-        mes2 = post2[3][1]
-        dia1 = post1[3][0]
-        dia2 = post2[3][0]
-        hora1 = post1[3][3]
-        hora2 = post2[3][3]
-        minuto1 = post1[3][4]
-        minuto2 = post2[3][4]
-        login1 = post1[0]
-        login2 = post2[0]
-        if ano1 > ano2:   return True
-        if ano1 < ano2:   return False
+    ano1 = post1[3][2]
+    ano2 = post2[3][2]
+    mes1 = post1[3][1]
+    mes2 = post2[3][1]
+    dia1 = post1[3][0]
+    dia2 = post2[3][0]
+    hora1 = post1[3][3]
+    hora2 = post2[3][3]
+    minuto1 = post1[3][4]
+    minuto2 = post2[3][4]
+    login1 = post1[0]
+    login2 = post2[0]
+        
+    if ano1 > ano2:   return True
+    if ano1 < ano2:   return False
 
-        if mes1 > mes2: return True
-        if mes1 < mes2: return False
+    if mes1 > mes2: return True
+    if mes1 < mes2: return False
 
-        if dia1 > dia2: return True
-        if dia1 < dia2: return False
+    if dia1 > dia2: return True
+    if dia1 < dia2: return False
 
-        if hora1 > hora2: return True
-        if hora1 < hora2: return False
+    if hora1 > hora2: return True
+    if hora1 < hora2: return False
 
-        if minuto1 > minuto2 : return True
-        if minuto1 < minuto2 : return False
+    if minuto1 > minuto2 : return True
+    if minuto1 < minuto2 : return False
 
-        if login1 < login2 : return True
-        if login1 > login2 : return False
+    if login1 < login2 : return True
+    if login1 > login2 : return False
 
 
 
