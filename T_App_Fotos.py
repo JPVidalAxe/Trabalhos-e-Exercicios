@@ -1,5 +1,4 @@
 import pickle
-import time
 
 
 def anterior(login1,login2,usuarios):
@@ -107,7 +106,6 @@ def qsort2(l1):
 
 
 def main():
-    t1 = time.time()
     l = []
     l1 = []
     with open('usuarios.bin','rb') as f:
@@ -145,9 +143,6 @@ def main():
                 a.write(f'{lpost}\n')
                 a.write(f'{str(dpost[0])}/{str(dpost[1])}/{str(dpost[2])} {str(dpost[3])}:{str(dpost[4])}\n')
                 a.write('***\n')
-            
-        t2 = time.time()
-        print(t2 - t1)
 
 
     
