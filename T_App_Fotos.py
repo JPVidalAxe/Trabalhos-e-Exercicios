@@ -1,6 +1,5 @@
 import pickle
 
-
 def anterior(login1,login2,usuarios):
     seguidores1 = len(usuarios[login1][2])
     seguidores2 = len(usuarios[login2][2])
@@ -57,7 +56,7 @@ def data(post1,post2):
     minuto2 = post2[3][4]
     login1 = post1[0]
     login2 = post2[0]
-        
+
     if ano1 > ano2:   return True
     if ano1 < ano2:   return False
 
@@ -109,7 +108,7 @@ def qsort2(l1):
 def main():
     l = []
     l1 = []
-    with open('usuarios.bin','rb') as f:
+    with open('usuarios.bin','rb') as f,open('saida.txt','w') as a:
         usuarios = pickle.load(f)
     
         for login in usuarios:
@@ -117,34 +116,65 @@ def main():
         
         l = qsort(l,usuarios)
         
-        with open('saida.txt','w') as a:
-            for login in l:
-                a.write(f'{usuarios[login][0]} (segue {str(len(usuarios[login][1]))}, seguido por {str(len(usuarios[login][2]))})\n')
+        
+        for login in l:
+            a.write(f'{usuarios[login][0]} (segue {str(len(usuarios[login][1]))}, seguido por {str(len(usuarios[login][2]))})\n')
     
-            first = l[0]
-            nome = usuarios[first][0]
-            follow = usuarios[first][2]
+        first = l[0]
+        nome = usuarios[first][0]
+        follow = usuarios[first][1]
         
         
-            for login in follow: 
-                for titulo,legenda,data in usuarios[login][3]:
-                        l1.append((login,titulo,legenda,data))
+        for login in follow: 
+            for titulo,legenda,data in usuarios[login][3]:
+                    l1.append((login,titulo,legenda,data))
             
-            l1 = qsort2(l1)
+        l1 = qsort2(l1)
             
-            a.write('---\n')
+        a.write('---\n')
 
-            a.write(f'Feed De {nome}:\n')
+        a.write(f'Feed De {nome}:\n')
     
-            a.write('***\n')
+        a.write('***\n')
         
-            for log_user,npost,lpost,dpost in l1:
-                a.write(f'{log_user}\n')
-                a.write(f'{npost}\n')
-                a.write(f'{lpost}\n')
+        for log_user,npost,lpost,dpost in l1:
+            a.write(f'{log_user}\n')
+            a.write(f'{npost}\n')
+            a.write(f'{lpost}\n')
+            if dpost[3] < 10 and dpost[4] < 10 and dpost[1] < 10 and dpost[0] < 10:
+                a.write(f'0{str(dpost[0])}/0{str(dpost[1])}/{str(dpost[2])} 0{str(dpost[3])}:0{str(dpost[4])}\n')
+            elif dpost[3] < 10 and dpost[4] < 10 and dpost[1] < 10:
+                a.write(f'{str(dpost[0])}/0{str(dpost[1])}/{str(dpost[2])} 0{str(dpost[3])}:0{str(dpost[4])}\n')
+            elif dpost[3] < 10 and dpost[4] < 10 and dpost[0] < 10:
+                a.write(f'0{str(dpost[0])}/{str(dpost[1])}/{str(dpost[2])} 0{str(dpost[3])}:0{str(dpost[4])}\n')
+            elif dpost[3] < 10 and dpost[1] < 10 and dpost[0] < 10:
+                a.write(f'0{str(dpost[0])}/0{str(dpost[1])}/{str(dpost[2])} 0{str(dpost[3])}:{str(dpost[4])}\n')
+            elif dpost[4] < 10 and dpost[1] < 10 and dpost[0] < 10:
+                a.write(f'0{str(dpost[0])}/0{str(dpost[1])}/{str(dpost[2])} {str(dpost[3])}:0{str(dpost[4])}\n')
+            elif dpost[3] < 10 and dpost[1] < 10:
+                a.write(f'{str(dpost[0])}/0{str(dpost[1])}/{str(dpost[2])} 0{str(dpost[3])}:{str(dpost[4])}\n')
+            elif dpost[3] < 10 and dpost[0] < 10:
+                a.write(f'0{str(dpost[0])}/{str(dpost[1])}/{str(dpost[2])} 0{str(dpost[3])}:{str(dpost[4])}\n')
+            elif dpost[4] < 10 and dpost[0] < 10:
+                a.write(f'0{str(dpost[0])}/{str(dpost[1])}/{str(dpost[2])} {str(dpost[3])}:0{str(dpost[4])}\n')
+            elif dpost[4] < 10 and dpost[1] < 10:
+                a.write(f'{str(dpost[0])}/0{str(dpost[1])}/{str(dpost[2])} {str(dpost[3])}:0{str(dpost[4])}\n')
+            elif dpost[3] < 10 and dpost[4] < 10:
+                a.write(f'{str(dpost[0])}/{str(dpost[1])}/{str(dpost[2])} 0{str(dpost[3])}:0{str(dpost[4])}\n')
+            elif dpost[1] < 10 and dpost[0] < 10:
+                a.write(f'0{str(dpost[0])}/0{str(dpost[1])}/{str(dpost[2])} {str(dpost[3])}:{str(dpost[4])}\n')
+            elif dpost[4] < 10:
+                a.write(f'{str(dpost[0])}/{str(dpost[1])}/{str(dpost[2])} {str(dpost[3])}:0{str(dpost[4])}\n')
+            elif dpost[3] < 10:
+                a.write(f'{str(dpost[0])}/{str(dpost[1])}/{str(dpost[2])} 0{str(dpost[3])}:{str(dpost[4])}\n')
+            elif dpost[1] < 10:
+                a.write(f'{str(dpost[0])}/0{str(dpost[1])}/{str(dpost[2])} {str(dpost[3])}:{str(dpost[4])}\n')
+            elif dpost[0] < 10:
+                a.write(f'0{str(dpost[0])}/{str(dpost[1])}/{str(dpost[2])} {str(dpost[3])}:{str(dpost[4])}\n')
+            else:
                 a.write(f'{str(dpost[0])}/{str(dpost[1])}/{str(dpost[2])} {str(dpost[3])}:{str(dpost[4])}\n')
-                a.write('***\n')
+            a.write('***\n')
 
 
-    
+
 main()
