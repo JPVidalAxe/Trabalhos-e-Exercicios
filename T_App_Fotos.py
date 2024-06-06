@@ -128,12 +128,12 @@ def main():
         for login in follow: 
             for titulo,legenda,data in usuarios[login][3]:
                     l1.append((login,titulo,legenda,data))
-            
+    
         l1 = qsort2(l1)
             
         a.write('---\n')
 
-        a.write(f'Feed De {nome}:\n')
+        a.write(f'Feed de {nome}:\n')
     
         a.write('***\n')
         
@@ -141,9 +141,9 @@ def main():
             a.write(f'{log_user}\n')
             a.write(f'{npost}\n')
             a.write(f'{lpost}\n')
-            a.write('{:02d}/{:02d}/{} {:02d}:{:02d}'.format(dpost[0],dpost[1],dpost[2],dpost[3],dpost[4]))
+            a.write(f'{dpost[0]:02d}/{dpost[1]:02d}/{dpost[2]} {dpost[3]:02d}:{dpost[4]:02d}\n')
             a.write('***\n')
 
-
+    
 
 main()
