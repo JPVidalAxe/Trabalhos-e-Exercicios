@@ -17,8 +17,8 @@ def anterior(login1,login2,usuarios):
     if nome1 > nome2: return True
     if nome1 < nome2: return False
 
-    if login1 < login2: return True
-    if login1 > login2: return False
+    if login1 > login2: return True
+    if login1 < login2: return False
    
         
     
