@@ -72,8 +72,8 @@ def data(post1,post2):
     if minuto1 > minuto2 : return True
     if minuto1 < minuto2 : return False
 
-    if login1 < login2 : return True
-    if login1 > login2 : return False
+    if login1 > login2 : return True
+    if login1 < login2 : return False
 
 
 
