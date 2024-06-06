@@ -72,8 +72,8 @@ def data(post1,post2):
     if minuto1 > minuto2 : return True
     if minuto1 < minuto2 : return False
 
-    if login1 > login2 : return True
-    if login1 < login2 : return False
+    if login1 < login2 : return True
+    if login1 > login2 : return False
 
 
 
@@ -141,38 +141,7 @@ def main():
             a.write(f'{log_user}\n')
             a.write(f'{npost}\n')
             a.write(f'{lpost}\n')
-            if dpost[3] < 10 and dpost[4] < 10 and dpost[1] < 10 and dpost[0] < 10:
-                a.write(f'0{str(dpost[0])}/0{str(dpost[1])}/{str(dpost[2])} 0{str(dpost[3])}:0{str(dpost[4])}\n')
-            elif dpost[3] < 10 and dpost[4] < 10 and dpost[1] < 10:
-                a.write(f'{str(dpost[0])}/0{str(dpost[1])}/{str(dpost[2])} 0{str(dpost[3])}:0{str(dpost[4])}\n')
-            elif dpost[3] < 10 and dpost[4] < 10 and dpost[0] < 10:
-                a.write(f'0{str(dpost[0])}/{str(dpost[1])}/{str(dpost[2])} 0{str(dpost[3])}:0{str(dpost[4])}\n')
-            elif dpost[3] < 10 and dpost[1] < 10 and dpost[0] < 10:
-                a.write(f'0{str(dpost[0])}/0{str(dpost[1])}/{str(dpost[2])} 0{str(dpost[3])}:{str(dpost[4])}\n')
-            elif dpost[4] < 10 and dpost[1] < 10 and dpost[0] < 10:
-                a.write(f'0{str(dpost[0])}/0{str(dpost[1])}/{str(dpost[2])} {str(dpost[3])}:0{str(dpost[4])}\n')
-            elif dpost[3] < 10 and dpost[1] < 10:
-                a.write(f'{str(dpost[0])}/0{str(dpost[1])}/{str(dpost[2])} 0{str(dpost[3])}:{str(dpost[4])}\n')
-            elif dpost[3] < 10 and dpost[0] < 10:
-                a.write(f'0{str(dpost[0])}/{str(dpost[1])}/{str(dpost[2])} 0{str(dpost[3])}:{str(dpost[4])}\n')
-            elif dpost[4] < 10 and dpost[0] < 10:
-                a.write(f'0{str(dpost[0])}/{str(dpost[1])}/{str(dpost[2])} {str(dpost[3])}:0{str(dpost[4])}\n')
-            elif dpost[4] < 10 and dpost[1] < 10:
-                a.write(f'{str(dpost[0])}/0{str(dpost[1])}/{str(dpost[2])} {str(dpost[3])}:0{str(dpost[4])}\n')
-            elif dpost[3] < 10 and dpost[4] < 10:
-                a.write(f'{str(dpost[0])}/{str(dpost[1])}/{str(dpost[2])} 0{str(dpost[3])}:0{str(dpost[4])}\n')
-            elif dpost[1] < 10 and dpost[0] < 10:
-                a.write(f'0{str(dpost[0])}/0{str(dpost[1])}/{str(dpost[2])} {str(dpost[3])}:{str(dpost[4])}\n')
-            elif dpost[4] < 10:
-                a.write(f'{str(dpost[0])}/{str(dpost[1])}/{str(dpost[2])} {str(dpost[3])}:0{str(dpost[4])}\n')
-            elif dpost[3] < 10:
-                a.write(f'{str(dpost[0])}/{str(dpost[1])}/{str(dpost[2])} 0{str(dpost[3])}:{str(dpost[4])}\n')
-            elif dpost[1] < 10:
-                a.write(f'{str(dpost[0])}/0{str(dpost[1])}/{str(dpost[2])} {str(dpost[3])}:{str(dpost[4])}\n')
-            elif dpost[0] < 10:
-                a.write(f'0{str(dpost[0])}/{str(dpost[1])}/{str(dpost[2])} {str(dpost[3])}:{str(dpost[4])}\n')
-            else:
-                a.write(f'{str(dpost[0])}/{str(dpost[1])}/{str(dpost[2])} {str(dpost[3])}:{str(dpost[4])}\n')
+            a.write('{:02d}/{:02d}/{} {:02d}:{:02d}.format(dpost[0],dpost[1],dpost[2],dpost[3],dpost[4])
             a.write('***\n')
 
 
