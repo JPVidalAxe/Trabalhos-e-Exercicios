@@ -141,7 +141,7 @@ def main():
             a.write(f'{log_user}\n')
             a.write(f'{npost}\n')
             a.write(f'{lpost}\n')
-            a.write('{:02d}/{:02d}/{} {:02d}:{:02d}.format(dpost[0],dpost[1],dpost[2],dpost[3],dpost[4]))
+            a.write('{:02d}/{:02d}/{} {:02d}:{:02d}'.format(dpost[0],dpost[1],dpost[2],dpost[3],dpost[4]))
             a.write('***\n')
 
 
